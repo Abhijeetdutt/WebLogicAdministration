@@ -1,11 +1,19 @@
+/*
+
+java -cp .:lib/wlthint3client.jar WLClient $URL "$PRINCIPAL" $JNDI
+
+where JNDI can be anything from a JDBC name to any other object.
+
+*/
+
 import java.util.Hashtable;
 import javax.naming.*;
 
 public class WLClient {
    private InitialContext ctx = null;
 
-   // NOTE: The next two lines set the name of the Queue Connection Factory
-   //       and the Queue that we want to use.
+   /*NOTE: The next two lines set the name of the Queue Connection Factory
+           and the Queue that we want to use. */
    private String JNDI_NAME = "";
    private String url = "";
    private String principal = "";
@@ -19,11 +27,11 @@ public class WLClient {
    }
 
    public void getObject(String JNDI_NAME) {
-       // create InitialContext
+       /* create InitialContext */
        Hashtable properties = new Hashtable();
        properties.put(Context.INITIAL_CONTEXT_FACTORY, this.WL_INIT_CONTEXT);
-       // NOTE: The port number of the server is provided in the next line,
-       //       followed by the userid and password on the next two lines.
+       /*NOTE:The port number of the server is provided in the next line,
+              followed by the userid and password on the next two lines. */
        properties.put(Context.PROVIDER_URL, this.url);
        properties.put(Context.SECURITY_PRINCIPAL, this.principal);
        properties.put(Context.SECURITY_CREDENTIALS, "");
