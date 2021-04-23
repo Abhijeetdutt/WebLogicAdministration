@@ -13,7 +13,7 @@ public class WLClient {
    private InitialContext ctx = null;
 
    /*NOTE: The next two lines set the name of the Queue Connection Factory
-           and the Queue that we want to use. */
+           and the Queue that we want to use.  */
    private String JNDI_NAME = "";
    private String url = "";
    private String principal = "";
